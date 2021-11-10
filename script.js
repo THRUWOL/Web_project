@@ -37,7 +37,7 @@ const getRandomLocation = () => {
   return { x, y };
 };
 
-function random() {
+const getRandomMirroring =() => {
   var randoms = Math.floor(Math.random() * 2);
   if (randoms) return -1;
   else return 1;
@@ -50,9 +50,7 @@ const createBird = () => {
   bird.style.top = `${y}px`;
   bird.style.left = `${x}px`;
   bird.innerHTML = `<img src="${selectedBird.src}" 
-  alt="${selectedBird.alt}"
-  style="transform: scale(${random()},1); -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;"
-   />`;
+  style="transform: scale(${getRandomMirroring()},1); -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;"/>`;
   bird.style.animation = `img-animation-${Math.floor(Math.random()*2)} ${Math.random() *10+10}s infinite`;
   
   bird.addEventListener("click", catchBird);
@@ -79,7 +77,7 @@ chooseBirdButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const image = button.querySelector("img");
     const src = image.getAttribute("src");
-    selectedBird = { src};
+    selectedBird = {src};
     screens[1].classList.add("up");
     setTimeout(createBird, 1000);
     startGame();
