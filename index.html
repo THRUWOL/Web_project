@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Поймай колибри </title>
+  </head>
+  <body>
+    <div class="screen">
+      <h1>Поймай колибри</h1>
+      <button class="btn" id="start-btn">Играть</button>
+    </div>
+    <div class="screen">
+      <h1>Кого ловим?</h1>
+      <ul class="bird-list">
+        <li>
+          <button class="choose-bird-btn">
+            <img
+              src="img/1.gif" 
+            />
+          </button>
+        </li>
+        <li>
+          <button class="choose-bird-btn">
+            <img
+              src="img/2.gif"
+            />
+          </button>
+        </li>
+        <li>
+          <button class="choose-bird-btn">
+            <img
+              src="img/3.gif" 
+            />
+          </button>
+        </li>
+        <li>
+          <button class="choose-bird-btn">
+            <img
+              src="img/4.gif"
+            />
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="screen game-container" id="game-container">
+      <h3 id="time" class="time">Таймер: 00:00</h3>
+      <h3 id="score" class="score">Счёт: 0</h3>
+      <h5 id="message" class="message">
+        Тут нет концовки...
+      </h5>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
