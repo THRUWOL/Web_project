@@ -72,8 +72,6 @@ const increaseTime = () => {
     alert(`Игра окончена, вы собрали ${score} очков`);
     seconds = 0;
     location.reload();
-    screens[1].classList.remove("up");
-    screens[1].classList.add("down");
   }
 };
 
