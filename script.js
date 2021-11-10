@@ -68,7 +68,7 @@ const increaseTime = () => {
   s = s < 10 ? `0${s}` : s;
   timeElement.innerHTML = `Время игры: ${m}:${s}`;
   seconds++;
-  if (seconds > 3) {
+  if (seconds > 61) {
     alert(`Игра окончена, вы собрали ${score} очков`);
     seconds = 0;
     location.reload();
