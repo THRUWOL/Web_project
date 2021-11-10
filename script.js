@@ -51,13 +51,15 @@ const createBird = () => {
   bird.style.left = `${x}px`;
   bird.innerHTML = `<img src="${selectedBird.src}" 
   alt="${selectedBird.alt}"
-  style="transform: scale(${random()},1);"
+  style="transform: scale(${random()},1); -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;"
    />`;
   bird.style.animation = `img-animation-${Math.floor(Math.random()*2)} ${Math.random() *10+10}s infinite`;
   
   bird.addEventListener("click", catchBird);
   gameContainer.appendChild(bird);
 };
+
+const startGame = () => setInterval(increaseTime, 1000);
 
 const increaseTime = () => {
   let m = Math.floor(seconds / 60);
@@ -66,9 +68,14 @@ const increaseTime = () => {
   s = s < 10 ? `0${s}` : s;
   timeElement.innerHTML = `Время игры: ${m}:${s}`;
   seconds++;
+  if (seconds > 3) {
+    alert(`Игра окончена, вы собрали ${score} очков`);
+    seconds = 0;
+    location.reload();
+    screens[1].classList.remove("up");
+    screens[1].classList.add("down");
+  }
 };
-
-const startGame = () => setInterval(increaseTime, 1000);
 
 chooseBirdButtons.forEach((button) => {
   button.addEventListener("click", () => {
